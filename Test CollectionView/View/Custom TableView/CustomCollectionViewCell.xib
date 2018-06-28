@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCollectionViewCell" id="xmc-OL-rrm" customClass="CustomCollectionViewCell" customModule="Test_CollectionView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="181" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="181" height="165"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PZP-Ff-Zqr">
+                        <rect key="frame" x="0.0" y="0.0" width="181" height="165"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tableView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="PZP-Ff-Zqr" firstAttribute="leading" secondItem="xmc-OL-rrm" secondAttribute="leading" id="9bv-SX-nJ7"/>
+                <constraint firstAttribute="bottom" secondItem="PZP-Ff-Zqr" secondAttribute="bottom" id="Ehh-KQ-ZRR"/>
+                <constraint firstItem="PZP-Ff-Zqr" firstAttribute="top" secondItem="xmc-OL-rrm" secondAttribute="top" id="GJd-Fy-IPa"/>
+                <constraint firstAttribute="trailing" secondItem="PZP-Ff-Zqr" secondAttribute="trailing" id="qs1-kb-KWK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Lh7-3W-oac"/>
+            <size key="customSize" width="181" height="165"/>
+            <connections>
+                <outlet property="tbView" destination="PZP-Ff-Zqr" id="G0a-bY-A1x"/>
+            </connections>
+            <point key="canvasLocation" x="112.5" y="99.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
