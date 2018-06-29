@@ -78,8 +78,8 @@
 			children = (
 				2ED4C26C20E1D4A400A95C36 /* AppDelegate.swift */,
 				2ED4C26E20E1D4A400A95C36 /* ViewController.swift */,
-				2ED4C29920E224D100A95C36 /* CustomTableViewCell.swift */,
 				2ED4C2A320E2336C00A95C36 /* CustomCollectionViewCell.swift */,
+				2ED4C29920E224D100A95C36 /* CustomTableViewCell.swift */,
 				2E106BC720E4BA9100E0A262 /* DetailViewController.swift */,
 			);
 			path = Controller;

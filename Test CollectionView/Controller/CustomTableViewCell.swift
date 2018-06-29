@@ -8,18 +8,19 @@
 
 import UIKit
 
-protocol ChangeName {
-  func changeName(name: String)
-}
+
 
 class CustomTableViewCell: UITableViewCell {
-
-  var changeNameDelegate: ChangeName?
   
-    @IBOutlet weak var lbTitle: UILabel!
+  @IBOutlet weak var lbTitle: UILabel!
   weak var controller : ViewController!
+  
+  
     override func awakeFromNib() {
         super.awakeFromNib()
+      
+//      self.isUserInteractionEnabled = true
+//      self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showDetail)))
         // Initialization code
     }
 
@@ -28,5 +29,9 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+  
+//  @objc func showDetail(){
+//    controller.showDetail()
+//  }
+//
 }

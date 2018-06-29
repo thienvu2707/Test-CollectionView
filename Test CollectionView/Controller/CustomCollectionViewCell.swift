@@ -8,6 +8,8 @@
 
 import UIKit
 
+// cell 1
+
 class CustomCollectionViewCell: UICollectionViewCell {
   
   weak var controller : ViewController!
@@ -15,6 +17,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     var data : [String]! {
         didSet{
             tbView.dataSource = self
+            tbView.delegate     = self
             tbView.reloadData()
         }
     }
@@ -36,12 +39,15 @@ extension CustomCollectionViewCell: UITableViewDataSource{
         let cell          = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         cell.controller   = controller
         cell.lbTitle.text = data[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
 }
 
-//extension CustomCollectionViewCell : UITableViewDelegate {
-//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    <#code#>
-//  }
-//}
+extension CustomCollectionViewCell : UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath)
+    controller.showDetail(detailDatashow: data[indexPath.row], cell: cell!)
+  }
+  
+}

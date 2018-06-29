@@ -105,7 +105,7 @@
         <!--Detail View Controller-->
         <scene sceneID="79t-BP-0ep">
             <objects>
-                <viewController id="Dpx-54-WUc" customClass="DetailViewController" customModule="Test_CollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dpx-54-WUc" customClass="DetailViewController" customModule="Test_CollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ugJ-ay-ioM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,8 +116,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-xg-Jrb">
-                                <rect key="frame" x="0.0" y="396.66666666666669" width="375" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-xg-Jrb">
+                                <rect key="frame" x="12" y="396.66666666666669" width="351" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZRN-rA-USp"/>
                                 </constraints>
@@ -128,12 +128,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uc-nb-ZDt">
                                 <rect key="frame" x="164" y="476.66666666666669" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonChangeName:" destination="Dpx-54-WUc" eventType="touchUpInside" id="CSG-al-mrH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Mae-xg-Jrb" firstAttribute="leading" secondItem="ssE-7C-N97" secondAttribute="leading" id="3z2-h8-DOB"/>
-                            <constraint firstItem="ssE-7C-N97" firstAttribute="trailing" secondItem="Mae-xg-Jrb" secondAttribute="trailing" id="G9O-wV-5Mn"/>
+                            <constraint firstItem="Mae-xg-Jrb" firstAttribute="leading" secondItem="ssE-7C-N97" secondAttribute="leading" constant="12" id="3z2-h8-DOB"/>
+                            <constraint firstItem="ssE-7C-N97" firstAttribute="trailing" secondItem="Mae-xg-Jrb" secondAttribute="trailing" constant="12" id="G9O-wV-5Mn"/>
                             <constraint firstItem="GO7-ck-iCh" firstAttribute="centerY" secondItem="ugJ-ay-ioM" secondAttribute="centerY" constant="-50" id="I51-Jj-vkD"/>
                             <constraint firstItem="5uc-nb-ZDt" firstAttribute="leading" secondItem="ssE-7C-N97" secondAttribute="leading" constant="164" id="bfJ-1q-896"/>
                             <constraint firstItem="5uc-nb-ZDt" firstAttribute="top" secondItem="Mae-xg-Jrb" secondAttribute="bottom" constant="30" id="gvE-VJ-8hq"/>
@@ -143,6 +146,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssE-7C-N97"/>
                     </view>
+                    <connections>
+                        <outlet property="labelTitle" destination="GO7-ck-iCh" id="kAy-8f-gB3"/>
+                        <outlet property="textField" destination="Mae-xg-Jrb" id="zF2-JW-nbp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="las-Wf-dmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

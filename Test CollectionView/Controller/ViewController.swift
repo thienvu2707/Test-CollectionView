@@ -13,21 +13,24 @@ class ViewController: UIViewController {
   @IBOutlet weak var buttonContainer: UIView!
   @IBOutlet weak var labelTab1: UIButton!
   @IBOutlet weak var labelTab2: UIButton!
-  
+  var cellModified            = UITableViewCell()
   @IBOutlet var collectionView: UICollectionView!
+  
+  let detailViewController                = DetailViewController()
+  let dataArray = ["aaa", "bbb", "ccc", "ddd", "eee", "fff", "ggg", "hhh", "iii", "jjj", "kkk", "lll", "mmm", "nnn", "ooo", "ppp", "qqq", "rrr", "sss", "ttt", "uuu", "vvv", "www", "xxx", "yyy", "zzz"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier : "CustomCollectionViewCell")
+    collectionView.register(UINib(nibName : "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier : "CustomCollectionViewCell")
     
-    collectionView.contentInset          = UIEdgeInsetsMake(120, 0, 0, 0)
+    collectionView.contentInset           = UIEdgeInsetsMake(120, 0, 0, 0)
   }
   
   
   @IBAction func tab1(_ sender: UIButton) {
     
-    let indexPath1 = IndexPath(item: 0, section: 0)
+    let indexPath1                        = IndexPath(item: 0, section: 0)
     collectionView.scrollToItem(at: indexPath1, at: .right, animated: true)
     
     print("tab1")
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
   
   @IBAction func tab2(_ sender: UIButton) {
     
-    let indexPath = IndexPath(item: 1, section: 0)
+    let indexPath                         = IndexPath(item: 1, section: 0)
     collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     print("tab2")
     
@@ -53,12 +56,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
+    let cell        = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
     cell.controller = self
-    cell.data = ["aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb", "aaa", "bbb"]
+    cell.data       = dataArray
     
     return cell
   }
+  
+  func showDetail(detailDatashow: String, cell: UITableViewCell)  {
+    cellModified = cell
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+    vc.titleTf = detailDatashow
+    self.navigationController?.pushViewController(vc, animated: true)
+    
+  }
+  
 }
 
 
@@ -73,11 +85,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
     return 0
   }
   
-  func setupHorizontalBar() {
-    let horizontalBar = UIView()
-    horizontalBar.backgroundColor = .blue
+}
+
+extension ViewController{
+  func changeData(textChanged: String){
+    if let cell = cellModified as? CustomTableViewCell{
+      cell.lbTitle.text = textChanged
+    }
   }
 }
+
+
+
+
 
 
 
